@@ -12,5 +12,5 @@ install:
 script:
   - go test github.com/joshbohde/add
   - mkdir -p kernels/add/vendor/github.com/joshbohde/add
-  - cp add/add.go kernels/add/vendor/github.com/joshbohde/add/add.go
+  - cp add.go kernels/add/vendor/github.com/joshbohde/add/add.go
   - cd kernels/add && reco check
