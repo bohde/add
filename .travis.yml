@@ -1,0 +1,16 @@
+language: go
+go_import_path: github.com/joshbohde/add
+
+go:
+  - 1.9
+
+install:
+- curl -LO https://s3.amazonaws.com/reconfigure.io/reco/releases/reco-master-x86_64-linux.zip
+- unzip reco-master-x86_64-linux.zip
+- sudo mv reco /usr/local/bin
+
+script:
+  - go test github.com/joshbohde/add
+  - mkdir -p kernels/add/vendor/github.com/joshbohde/add
+  - cp add/add.go kernels/add/vendor/github.com/joshbohde/add/add.go
+  - cd kernels/add && reco check
